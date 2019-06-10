@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// tr:nth-child(even) td {
+//   background:grey !important
+// }
+
+
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/dark.css';//dark material, boostrap and mention the same classname
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+//css  must set in globally scss file
+
+//ngx smart modal
+@import "~ngx-smart-modal/ngx-smart-modal";
+@import "app/app.component";
+
+$color-overlay: rgba(0, 0, 0, .7);
+$dialog-position-top: 50%;
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";

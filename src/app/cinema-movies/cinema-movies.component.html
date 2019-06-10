@@ -1,0 +1,11 @@
+<app-header></app-header>
+<div class="">
+  <p> Getting movie by cinema id:{{id}}</p>
+  <h2>All Movies in {{cinemaName}} Cinema </h2>
+</div>
+
+<div class="movie-info">
+  <div *ngFor="let item of movieId" class="movie-info">
+     <span>{{item.movieId.name}}</span>
+ <a [routerLink]="['moviepresent',item.movieId._id ]"> <img src={{item.movieId.image}} alt="" class="movieImage" ></a>
+</div>

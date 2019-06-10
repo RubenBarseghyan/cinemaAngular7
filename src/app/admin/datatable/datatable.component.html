@@ -1,0 +1,81 @@
+<app-ngxsmatdialog></app-ngxsmatdialog>
+
+<input
+    type='text'
+    style='padding:8px;margin:15px auto;width:30%;'
+    placeholder='Type to filter the name column...'
+    (keyup)='updateFilter($event)'
+  />
+  <div class="">
+    <ngx-datatable
+        #table
+        class='dark'
+        [offset]="0"
+        [loadingIndicator]="loadingIndicator"
+        [columns]='columns'
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [footerHeight]="50"
+        [rowHeight]="'auto'"
+        [limit]="5"
+        [rows]='rows'>
+
+
+        <div *ngIf="!columns">
+           <ngx-datatable-column  prop="_id">
+
+             </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="name">
+
+           </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="image" >
+               <ng-template let-value="value" ngx-datatable-cell-template>
+                 <img src={{value}} alt="oooo" >
+               </ng-template>
+           </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="trailer">
+               <ng-template let-value="value" ngx-datatable-cell-template>
+                 <iframe width="120" height="90" [src]='sanitizer.bypassSecurityTrustResourceUrl(value)' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen scrolling="no"></iframe>
+               </ng-template>
+           </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="_id"  [width]="10"  >
+               <ng-template let-value="value" ngx-datatable-cell-template >
+                 <button mat-icon-button color="accent" (click)='getElementIdForUpdate(value)' >
+                     <mat-icon class="mat-18" (click)="ngxSmartModalService.getModal('myModal').open()">system_update</mat-icon>
+
+                 </button>
+               </ng-template>
+           </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="delete"[width]="10">
+               <ng-template let-value="value" ngx-datatable-cell-template>
+                 <button mat-icon-button color="warn" (click)="getElementId(element)" >
+                     <mat-icon class="mat-19">delete</mat-icon>
+                 </button>
+               </ng-template>
+           </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="details"[width]="10" >
+               <ng-template let-value="value" ngx-datatable-cell-template>
+                 <button mat-icon-button color="primary" (click)="getElementDetails(element._id)">
+                     <mat-icon class="mat-18">reorder</mat-icon>
+                 </button>
+               </ng-template>
+           </ngx-datatable-column>
+
+           <ngx-datatable-column  prop="create"[width]="10" >
+               <ng-template let-value="value" ngx-datatable-cell-template>
+                 <button mat-icon-button color="accent" (click)="getElementDetails(value)">
+                     <mat-icon class="mat-10">create</mat-icon>
+                 </button>
+               </ng-template>
+           </ngx-datatable-column>
+
+         </div>
+      </ngx-datatable>
+  </div>
+<!--  columnMode proporcianalnii columneri widn e bajanum-->

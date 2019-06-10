@@ -1,0 +1,136 @@
+<div fxLayout fxLayoutAlign="center center">
+  <mat-form-field fxFlex="20%">
+    <label for="filter"></label>
+    <input matInput type="text" (keyup)="doFilter($event.target.value)" placeholder="Filter" id="filter">
+  </mat-form-field>
+</div>
+<div class="create-cin">
+  <a (click)="createCinema()" class="create-cin">Create new Cinema</a>
+</div>
+<hr>
+<div >
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+       <td mat-cell *matCellDef="let element">
+          <a [routerLink]="element._id">
+            {{element._id}}
+          </a>
+         </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <th mat-header-cell *matHeaderCellDef > Image </th>
+      <td mat-cell *matCellDef="let element"> <img src={{element.image}} alt="image of cinema"> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="details">
+      <th mat-header-cell *matHeaderCellDef> Details </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="getElementDetails(element._id)">
+            <mat-icon class="mat-18">reorder</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> Update </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="accent" (click)="getElementForUpdate(element._id)">
+              <mat-icon class="mat-18">system_update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+          <th mat-header-cell *matHeaderCellDef> Delete </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="warn" (click)="getElementId(element._id)" >
+                <mat-icon class="mat-19">delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 6, 7]" showFirstLastButtons></mat-paginator>
+</div>
+
+<div class="btnback">
+  <a (click)="back()">Back</a>
+</div>
+
+<!--  details modal-->
+<ng-template #detailsWindow >
+  <h3>Cinemas Details</h3>
+  <p>name: {{theDetails.name}}</p>
+  <p>address: {{theDetails.address}}</p>
+  <p> the photo <img src={{theDetails.image}} alt=""> </p>
+  <div class="button-group">
+    <button type="button" class="button primary" (click)="decline()" >OK</button>
+  </div>
+</ng-template>
+
+<!-- delete  modal-->
+<ng-template #confirmWindow >
+  <p>Do you want to delete cinema?</p>
+  <div class="button-group">
+    <button type="button" class="button secondary" (click)="confirm()" >Yes</button>
+    <button type="button" class="button primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+<!-- update modal-->
+<ng-template #updateCinema >
+  <p>do you want save changes</p>
+  <div class="mainContainer">
+    <form class="create-cinema" [formGroup]="createCinemaForm" novalidate (ngSubmit)="onSubmit()">
+
+      <div class="">
+        <div class="">
+          <label for="cinemaName">Cinema Name</label>
+        </div>
+        <input type="text" id="cinemaName"placeholder="enter the cinema name" formControlName="name">
+              <div class="alert-alert-danger"
+              *ngIf="createCinemaForm.controls['name'].invalid && createCinemaForm.controls['name'].touched">
+               CinemaName must consist min 1 letter</div>
+             </div>
+      <div class="">
+          <div class="">
+            <label for="cinemaAddress">Cinema Address</label>
+          </div>
+          <input type="text" id="address" placeholder="enter cinema address" formControlName="address">
+              <div class="alert-alert-danger"
+              *ngIf="createCinemaForm.controls['address'].invalid && createCinemaForm.controls['address'].touched">
+               Cinema Address must consist min 1 letter</div>
+      </div>
+
+      <div class="">
+        <div class="">
+          <label for="trailer">Image</label>
+        </div>
+        <input type="text" id="traileer" placeholder="enter the link of image" formControlName="image">
+        <div class="alert-alert-danger"
+        *ngIf="createCinemaForm.controls['image'].invalid && createCinemaForm.controls['image'].touched">
+         Cinema Address must consist min 1 letter</div>
+      </div>
+
+    </form>
+  </div>
+  <div class="button-group">
+    <button type="button" class="button secondary" (click)="confirmUpdate()" >Yes</button>
+    <button type="button" class="button primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>

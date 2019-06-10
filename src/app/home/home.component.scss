@@ -1,0 +1,32 @@
+.cinemas .cinemaImage {
+width: 700px;
+max-height: 250px;
+margin: 10px;
+/* float: left; */
+}
+
+.movies {
+max-width:100px;
+height: 100px;
+
+}
+
+ul {
+list-style-type: none;
+text-align: center;
+}
+
+li, p, h2 {
+text-align: center;
+}
+
+.esim {
+float: right;
+}
+.topnav {
+  text-align: right;
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

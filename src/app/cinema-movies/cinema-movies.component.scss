@@ -1,0 +1,25 @@
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+li, p, h2 {
+  text-align: center;
+}
+
+.movies {
+  max-width: 300px;
+  height: 300px;
+
+}
+
+.movie-info {
+  float: left;
+  margin: 25px
+}
+
+.movieImage{
+    height: 170px;
+    width: 120px;
+
+}

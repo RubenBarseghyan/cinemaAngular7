@@ -1,0 +1,49 @@
+<div class="mainContainer">
+
+  <form [formGroup]="userFormRegister" novalidate (ngSubmit)="onSubmit()" class="user-register">
+
+    <div class="form-group">
+      <div class="">
+        <label for="userName">Username</label>
+      </div>
+      <input type="text" id="userName" formControlName="userName" >
+      <div class="alert alert-danger"
+      *ngIf="userFormRegister.controls['userName'].invalid && userFormRegister.controls['userName'].touched">
+       UserName must be min 6 letters and max 10 letters</div>
+    </div>
+
+    <div class="form-group">
+      <div class="">
+        <label for="userEmail">Email</label>
+      </div>
+      <input type="text" id="userEmail" formControlName="userEmail">
+      <div class="alert alert-danger"
+      *ngIf="userFormRegister.controls['userEmail'].invalid && userFormRegister.controls['userEmail'].touched">
+      Wrong Email</div>
+    </div>
+
+    <div class="form-group">
+      <div class="">
+        <label for="userPassword">Password</label>
+      </div>
+      <input type="password" id="userPassword" formControlName="userPassword" >
+      <div class="alert alert-danger"
+      *ngIf="userFormRegister.controls['userPassword'].invalid && userFormRegister.controls['userPassword'].touched">
+       password must be min 6 letter and max 10 letters</div>
+    </div>
+
+    <div class="form-group">
+      <div class="">
+        <label for="userPasswordConfirm">Confirm Password</label>
+      </div>
+      <input type="password" id="userPasswordConfirm" formControlName="userPasswordConfirm" >
+      <div style='color:#ff7355; border:solid red 2px'*ngIf="userFormRegister.value.userPassword !== userFormRegister.value.userPasswordConfirm" >
+  Password does not match</div>
+    </div>
+
+    <div class="panel-footer">
+      <button class="btn-register" [disabled]="userFormRegister.invalid"> Registration </button>
+      <a id="goToLogin" routerLink="/login">Login</a>
+    </div>
+  </form>
+</div>

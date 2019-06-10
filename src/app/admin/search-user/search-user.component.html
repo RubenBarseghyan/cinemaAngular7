@@ -1,0 +1,15 @@
+<h4>Find the User</h4>
+  <div class="main">
+    <div class="container">
+      <input class="must" (keyup)="onKey($event)" [(ngModel)]="inputValue"  >
+    </div>
+    <div *ngIf="userNamesArray" class="scroll-for">
+      <div class="the-result" *ngFor="let item of userNamesArray; let v = index" >
+        <p (click)="takeValau($event)">{{item.userName}} {{v+1}}</p>
+    </div>
+  </div>
+</div>
+
+<p>Search User from table</p>
+
+<app-datatable [url]="theUrl" [columns]="theColumns"> </app-datatable>

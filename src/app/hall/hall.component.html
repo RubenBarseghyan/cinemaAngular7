@@ -1,0 +1,40 @@
+
+<h2 mat-dialog-title>{{description}}</h2>
+<p>Reserve your seat</p>
+<div class="table-container">
+  <table class="hall">
+    <tr *ngFor="let mainItem of thNumber; let v = index">
+      <td *ngFor="let item of rowNumber;let k=index;"
+          id="{{v}}{{k}}" class="seat"
+          (click)="detectSeat(v, k, $event)" [ngClass]="{'active': ''+v+k === clickedId}"
+
+          >
+
+        {{v+1}}:row {{k+1}}:seat
+      </td>
+    </tr>
+  </table>
+</div>
+
+<mat-dialog-content [formGroup]="reserveGroup">
+
+    <mat-form-field>
+        <input matInput
+                placeholder="the row"
+               formControlName="row"
+               [(ngModel)]="theRow">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [(ngModel)]="theSeat"
+                placeholder="the seat"
+               formControlName="seat">
+
+    </mat-form-field>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>

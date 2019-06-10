@@ -1,0 +1,34 @@
+<div class="mainContainer">
+
+  <form [formGroup]="userFormLogin" novalidate (ngSubmit)="onSubmit()" class="user-login">
+
+    <div class="form-group">
+        <div class="">
+          <label for="userEmail">Email</label>
+        </div>
+        <input type="text" id="userEmail" formControlName="userEmail" >
+        <div class="alert alert-danger"
+        *ngIf="userFormLogin.controls['userEmail'].invalid && userFormLogin.controls['userEmail'].touched">
+         UserName must be min 6 letters and max 10 letters</div>
+         <div class="error-from-server"
+         *ngIf="errorMes">
+           there is no user with such email</div>
+    </div>
+
+    <div class="form-group">
+        <div class="">
+          <label for="userPassword">Password</label>
+        </div>
+        <input type="password" id="userPassword" formControlName="userPassword">
+        <div class="alert alert-danger"
+        *ngIf="userFormLogin.controls['userPassword'].invalid && userFormLogin.controls['userPassword'].touched">
+        Wrong Password</div>
+    </div>
+
+
+    <div class="panel-footer">
+      <button class="btn-login" [disabled]="userFormLogin.invalid"> Login </button>
+      <a id="goToRegistration" routerLink="/register"> Registration </a>
+    </div>
+  </form>
+</div>

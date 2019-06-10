@@ -1,0 +1,10 @@
+<ngx-smart-modal #myModal [identifier]="'myModal'" >
+    <div *ngIf="myModal.hasData()">
+
+
+    </div>
+    <div class="button-group">
+      <button type="button" class="button secondary" (click)="confirmUpdate()" >Yes</button>
+      <button type="button" class="button primary" (click)="myModal.close()" >No</button>
+    </div>
+</ngx-smart-modal>

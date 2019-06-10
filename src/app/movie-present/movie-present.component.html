@@ -1,0 +1,15 @@
+<div class="mainContainer">
+<app-header></app-header>
+
+
+  <div *ngFor="let item of movieIdArray">
+    <h2>Movie Title: {{item.name}}</h2>
+    <div class="btn">
+        <button mat-raised-button (click)="openDialog()">Reserve the Seat</button>
+    </div>
+    <div class="video-container">
+      <iframe width="560" height="315" [src]='sanitizer.bypassSecurityTrustResourceUrl(item?.trailer)' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+</div>

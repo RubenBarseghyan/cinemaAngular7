@@ -1,0 +1,16 @@
+
+<app-header></app-header>
+
+
+<app-getdata [amount]="amount" (amountChange)="this.amount=$event"></app-getdata>
+
+<button (click)="deposit()">Deposit 1</button>
+
+<h2>Cinema Buildings</h2>
+<ul class="cinemas">
+  <li *ngFor="let item of cinemaBuildings, let k=index">
+    <p class="name">name: {{item.name}}</p>
+    <p class="address">Address: {{item.address}}</p>
+  <a [routerLink]="['cinemas', item._id]">   <img src={{item.image}} alt="there must be image" class="cinemaImage"></a>
+  </li>
+</ul>

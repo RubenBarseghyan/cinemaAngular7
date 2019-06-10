@@ -1,0 +1,41 @@
+<div class="mainContainer">
+  <h2>Create Cinema</h2>
+
+    <form class="create-cinema" [formGroup]="createCinemaForm" novalidate (ngSubmit)="onSubmit()">
+
+      <div class="">
+        <div class="">
+          <label for="cinemaName">Cinema Name</label>
+        </div>
+        <input type="text" id="cinemaName" placeholder="enter the cinema name" formControlName="name">
+              <div class="alert-alert-danger"
+              *ngIf="createCinemaForm.controls['name'].invalid && createCinemaForm.controls['name'].touched">
+               CinemaName must consist min 1 letter</div>
+             </div>
+      <div class="">
+          <div class="">
+            <label for="cinemaAddress">Cinema Address</label>
+          </div>
+          <input type="text" id="address" placeholder="enter cinema address" formControlName="address">
+              <div class="alert-alert-danger"
+              *ngIf="createCinemaForm.controls['address'].invalid && createCinemaForm.controls['address'].touched">
+               Cinema Address must consist min 1 letter</div>
+      </div>
+
+      <div class="">
+        <div class="">
+          <label for="trailer">Image</label>
+        </div>
+        <input type="text" id="traileer" placeholder="enter the link of image" formControlName="image">
+        <div class="alert-alert-danger"
+        *ngIf="createCinemaForm.controls['image'].invalid && createCinemaForm.controls['image'].touched">
+         Cinema Address must consist min 1 letter</div>
+      </div>
+
+      <div class="panel-footer">
+        <button class="btn-createcinema" [disabled]="createCinemaForm.invalid"> Create Cinema </button>
+        <a id="admin" routerLink="/admin"> Admin Dashboard </a>
+      </div>
+
+  </form>
+</div>

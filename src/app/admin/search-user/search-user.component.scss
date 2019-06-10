@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+.container {
+  padding: 15px;
+  border-radius: 15px;
+  text-align: center;
+  }
+
+
+.must {
+  width: 50%;
+  height: 35px;
+  border-radius: 10px;
+}
+
+p {
+  width: 50%;
+  margin-left: 25%;
+  padding: 5px;
+}
+
+p:hover{
+  background-color: #b3d9ff;
+  border-radius: 7px;
+}
+h4, p {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.scroll-for {
+  width: 100%;
+  overflow-y:scroll;
+  height:100px;
+
+}

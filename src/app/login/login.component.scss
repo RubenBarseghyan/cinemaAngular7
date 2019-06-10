@@ -1,0 +1,32 @@
+h1, div, label{
+  padding: 10px;
+  text-align: center;
+  margin-top: 5px
+}
+input{
+  height: 25px;
+  width: 300px
+}
+
+.mainContainer{
+  height:max-content;
+  width: max-content;
+  background-color: #99ffff;
+  margin: 0 auto;
+}
+
+#goToRegistration {
+  margin: 25px;
+  text-decoration: none
+}
+input.ng-touched.ng-invalid {
+  border:solid red 2px;
+}
+
+input.ng-touched.ng-valid {
+  border:solid green 2px;
+}
+
+.error-from-server{
+  color: red;
+}

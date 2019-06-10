@@ -1,0 +1,44 @@
+
+.btnback{
+  margin: 25px
+}
+img{
+  width: 120px;
+  height: 70px
+}
+
+table {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    color: black;
+}
+
+th.mat-header-cell {
+    text-align: left;
+}
+
+
+td {
+  cursor: all-scroll;
+}
+
+.button-group {
+  justify-content: center;
+}
+a {
+	background-color: #eaf1dd;
+	color: #060;
+	text-decoration: none;
+	font-family: Verdana, Geneva, sans-serif;
+	padding: 6px 4px;
+	border-right: 2px solid #999999;
+	border-bottom: 2px solid #999999;
+	border-top-width: 0px;
+	border-left-width: 0px;
+  margin-left: 10px;
+}
+
+p, h3 {
+  text-align: center;
+}

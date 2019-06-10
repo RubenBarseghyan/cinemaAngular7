@@ -1,0 +1,22 @@
+h1, div, label{
+  padding: 10px;
+  text-align: center;
+}
+input {
+  height: 45px;
+  width: 400px;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.mainContainer{
+  height:100%;
+  width: 100%;
+  background-color: #99ffff;
+  margin: 0 auto;
+
+}
+.alert-alert-danger{
+  color: red;
+}
