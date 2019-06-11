@@ -45,12 +45,12 @@ export class CinematabComponent implements OnInit {
 
       ngOnInit() {
         this.getAllCinemaClientSide();
+        console.log('rubo');
       }
 
       public back(): void{
         this.router.navigate(['admin']);
       }
-
 
       getAllCinemaClientSide():void{
         this.repoService.getData('api/cinemas').subscribe((res: any) =>{
@@ -142,7 +142,6 @@ export class CinematabComponent implements OnInit {
         public doFilter = (value: string) => {
         this.dataSource.filter = value.trim().toLocaleLowerCase();
       }
-
 
       public createCinema(): void{
         this.router.navigate(['admin/createcinema']);
