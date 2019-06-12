@@ -28,8 +28,8 @@ export class SearchUserComponent implements OnInit {
       if(this.inputValue.length >2){
         this.http.create("api/user/allusers", {data: this.inputValue})//when put we must send object!!!!
           .subscribe((res) => {
-          this.userNamesArray = res;
-            console.log(res);
+          this.userNamesArray = res.data;
+            console.log(this.userNamesArray, 'namesssss');
           }, (err) => {
             console.log(err);
           });

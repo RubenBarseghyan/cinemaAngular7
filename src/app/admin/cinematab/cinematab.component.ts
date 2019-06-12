@@ -45,7 +45,6 @@ export class CinematabComponent implements OnInit {
 
       ngOnInit() {
         this.getAllCinemaClientSide();
-        console.log('rubo');
       }
 
       public back(): void{

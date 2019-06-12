@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
     let body  = this.userFormLogin.getRawValue();
     this.http.create(url, body).subscribe((res:any) => {
       console.log('login');
+      console.log(res, 'resssssssssssssss')
 
       if(res.token){
         localStorage.setItem('userInfo', JSON.stringify(res));

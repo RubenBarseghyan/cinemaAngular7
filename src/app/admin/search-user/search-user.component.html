@@ -5,7 +5,7 @@
     </div>
     <div *ngIf="userNamesArray" class="scroll-for">
       <div class="the-result" *ngFor="let item of userNamesArray; let v = index" >
-        <p (click)="takeValau($event)">{{item.userName}} {{v+1}}</p>
+        <p (click)="takeValau($event)">{{item}} {{v+1}}</p>
     </div>
   </div>
 </div>
